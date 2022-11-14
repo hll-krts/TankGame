@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GunRotation : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class GunRotation : MonoBehaviour
     public float FireRat_e;
     private float FireTime = 2;
 
+    public Slider ReloadSlider;
     public GameObject Shell;
     public GameObject Turret;
     public GameObject Barrel;
@@ -24,8 +26,9 @@ public class GunRotation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-         RotationFunction();
-         Fayya();
+        RotationFunction();
+        Fayya();
+        ReloadTime();
     }
 
     void RotationFunction(){
@@ -47,5 +50,10 @@ public class GunRotation : MonoBehaviour
             Instantiate(Shell, Barrel.transform.position, Turret.transform.rotation);
             FireTime = Time.time + FireRat_e;
         }
+    }
+
+    void ReloadTime(){
+        ReloadSlider.maxValue = FireRat_e;
+        ReloadSlider.value = FireTime - Time.time;        
     }
 }
