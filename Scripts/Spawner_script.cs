@@ -18,7 +18,7 @@ public class Spawner_script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(Time.time);
+        //Debug.Log(Time.time);
         if(Time.time >= 600.0f && Time.time <= 600.1f){
             Debug.Log("LIGMA BALLS");
             gamestop();

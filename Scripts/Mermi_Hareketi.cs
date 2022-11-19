@@ -6,7 +6,6 @@ public class Mermi_Hareketi : MonoBehaviour
 {
     //target count artmıyor
     public float speed;
-    public float Target_count;
     // Start is called before the first frame update
     void Start()
     {

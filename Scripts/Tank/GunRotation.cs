@@ -11,6 +11,8 @@ public class GunRotation : MonoBehaviour
     public float FireRat_e;
     private float FireTime = 2;
 
+    public float Target_Count =0;
+
     public Slider ReloadSlider;
     public GameObject Shell;
     public GameObject Turret;
@@ -46,7 +48,7 @@ public class GunRotation : MonoBehaviour
     void Fayya(){
         float Space_input = Input.GetAxis("Jump");
         if(Space_input > 0 && Time.time >= FireTime){
-            Debug.Log("Fayya!!!11!111");
+            Debug.Log("Fayya!!!11!111       " + Target_Count);
             Instantiate(Shell, Barrel.transform.position, Turret.transform.rotation);
             FireTime = Time.time + FireRat_e;
         }
