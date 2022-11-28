@@ -20,7 +20,6 @@ public class Spawner_script : MonoBehaviour
     {
         //Debug.Log(Time.time);
         if(Time.time >= 600.0f && Time.time <= 600.1f){
-            Debug.Log("LIGMA BALLS");
             gamestop();
         }
     }

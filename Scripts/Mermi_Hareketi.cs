@@ -21,7 +21,6 @@ public class Mermi_Hareketi : MonoBehaviour
 
     void OnTriggerEnter(Collider other){
         if(other.tag == "Target"){
-            Debug.Log("A");
             Destroy(this.gameObject);
         }
         if(other.tag == "Cover"){

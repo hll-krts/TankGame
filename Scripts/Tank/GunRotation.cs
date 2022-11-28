@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class GunRotation : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class GunRotation : MonoBehaviour
     public float Target_Count =0;
 
     public Slider ReloadSlider;
+    public GameObject ScoreText;
+    TextMeshProUGUI ScoreText_Text;
     public GameObject Shell;
     public GameObject Turret;
     public GameObject Barrel;
@@ -22,7 +25,7 @@ public class GunRotation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        ScoreText_Text = ScoreText.GetComponent<TextMeshProUGUI>();
     }
 
     // Update is called once per frame
@@ -46,9 +49,8 @@ public class GunRotation : MonoBehaviour
     }
 
     void Fayya(){
-        float Space_input = Input.GetAxis("Jump");
+        float Space_input = Input.GetAxis("Fire1");
         if(Space_input > 0 && Time.time >= FireTime){
-            Debug.Log("Fayya!!!11!111       " + Target_Count);
             Instantiate(Shell, Barrel.transform.position, Turret.transform.rotation);
             FireTime = Time.time + FireRat_e;
         }
@@ -57,5 +59,11 @@ public class GunRotation : MonoBehaviour
     void ReloadTime(){
         ReloadSlider.maxValue = FireRat_e;
         ReloadSlider.value = FireTime - Time.time;        
+    }
+
+    public void ScoreChanger(){     
+        Target_Count++;
+        ScoreText_Text.text = Target_Count.ToString();
+        Debug.Log(Target_Count);
     }
 }
